@@ -2,22 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.hollowlatte</groupId>
     <artifactId>springboot3-scaffold-standard</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-
     <name>springboot3-scaffold-standard</name>
-
     <scm>
         <url>https://github.com/HollowLatte/springboot3-scaffold-standard.git</url>
     </scm>
-
     <modules>
         <module>ddd-scaffold-standard</module>
     </modules>
-
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +21,6 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-checksum-plugin.version>1.10</maven-checksum-plugin.version>
     </properties>
-
     <build>
         <extensions>
             <extension>
@@ -35,7 +29,6 @@
                 <version>3.3.0</version>
             </extension>
         </extensions>
-
         <plugins>
             <plugin>
                 <groupId>net.nicoulaj.maven.plugins</groupId>
@@ -114,7 +107,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>release</id>
@@ -123,12 +115,13 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version> <!-- 使用最新版本 -->
+                        <version>2.9.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
+                                <!-- 绑定到 jar 目标 -->
                                 <goals>
-                                    <goal>jar</goal> <!-- 绑定到 jar 目标 -->
+                                    <goal>jar</goal>
                                 </goals>
                                 <configuration>
                                     <additionalparam>-Xdoclint:none</additionalparam>

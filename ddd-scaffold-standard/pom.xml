@@ -13,7 +13,7 @@
     <version>1.0.0</version>
     <packaging>maven-archetype</packaging>
 
-    <name>springboot3-scaffold-standard</name>
+    <name>ddd-scaffold-standard</name>
 
     <scm>
         <url>https://github.com/HollowLatte/springboot3-scaffold-standard.git</url>

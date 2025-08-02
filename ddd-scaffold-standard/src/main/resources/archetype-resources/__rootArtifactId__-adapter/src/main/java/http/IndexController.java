@@ -1,9 +1,9 @@
 package ${package}.http;
 
-import com.hollowlatte.demo.common.dto.MultiResponse;
-import com.hollowlatte.demo.common.dto.PageResponse;
-import com.hollowlatte.demo.common.dto.Response;
-import com.hollowlatte.demo.common.dto.SingleResponse;
+import ${package}.common.dto.MultiResponse;
+import ${package}.common.dto.PageResponse;
+import ${package}.common.dto.Response;
+import ${package}.common.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

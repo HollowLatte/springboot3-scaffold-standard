@@ -11,7 +11,6 @@
 
     <artifactId>${artifactId}</artifactId>
     <packaging>jar</packaging>
-    <name>${artifactId}</name>
 
     <dependencies>
         <dependency>

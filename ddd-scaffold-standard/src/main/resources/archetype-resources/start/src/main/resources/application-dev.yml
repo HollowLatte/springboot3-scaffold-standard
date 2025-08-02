@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 server:
   port: 9200
 
@@ -15,14 +12,13 @@ thread:
         block-queue-size: 5000
         reject-policy: abort
 
-# 数据库配置；启动时配置数据库资源信息
 spring:
   datasource:
     username: root
     password: 123456
     url: jdbc:mysql://127.0.0.1:3306/hello?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
-    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
       pool-name: HikariCP
       minimum-idle: 5 # 最小空闲连接数量
       idle-timeout: 600000 # 空闲连接存活最大时间，默认600000（10分钟）
@@ -35,10 +31,29 @@ spring:
     redisson:
       file: classpath:redisson.yaml
 
-# MyBatis 配置【如需使用记得打开】
-#mybatis:
-#  mapper-locations: classpath:/mybatis/mapper/*.xml
-#  config-location:  classpath:/mybatis/config/mybatis-config.xml
+# MybatisPlus 配置
+mybatis-plus:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+xxl:
+  job:
+    enabled: false
+    admin:
+      access-token: default_token # 执行器通讯TOKEN
+      addresses: http://127.0.0.1:9000/xxl-job-admin
+      timeout: 3
+    executor:
+      app-name: xxl-job-executor
+      address: ""
+      ip: ""
+      port: -1
+      log-path: /data/logs/xxl-job/job-handler
+      log-retention-days: 30
 
 # 日志
 logging:
