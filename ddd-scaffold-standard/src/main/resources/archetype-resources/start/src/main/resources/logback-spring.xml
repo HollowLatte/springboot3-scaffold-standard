@@ -1,0 +1,121 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL，例如设置为WARN，则低于WARN的信息都不会输出 -->
+<configuration scan="true" scanPeriod="30 seconds">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
+    <contextName>logback</contextName>
+    <!-- 设置日志文件存储路径变量 -->
+    <property name="LOG_PATH" value="./data/log"/>
+    <property name="LOG_CHARSET" value="UTF-8"/>
+    <!-- 格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %clr(%5p) [%thread] %clr(%logger{50}){cyan} : %m%n"/>
+    <property name="FILE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %clr(%5p) [%thread] %clr(%logger{50}){cyan} : %m%n"/>
+    <!-- name的值是变量的名称，value的值时变量定义的值。通过定义的值会被插入到logger上下文中。定义变量后，可以使“${symbol_dollar}{}”来使用变量。 -->
+    <springProperty scope="context" name="LOG_PATH" source="logging.path"/>
+
+    <!-- 输出到控制台 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>${LOG_CHARSET}</charset>
+        </encoder>
+    </appender>
+
+    <!-- 时间滚动输出 level为 INFO 日志 -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 正在记录的日志文件的路径及文件名 -->
+        <file>${LOG_PATH}/log_info.log</file>
+        <!-- 日志文件输出格式 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>${LOG_CHARSET}</charset>
+        </encoder>
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 每天日志文件归档路径以及格式,可设置文件类型为gz,开启gzip文件压缩 -->
+            <fileNamePattern>${LOG_PATH}/archived/log-info-%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
+            <!-- 【根据服务器预留，可自行调整】 -->
+            <!-- 日志文件保留天数 -->
+            <maxHistory>30</maxHistory>
+            <!-- 每个日志文件的最大大小，超过时会切割并新建文件 -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- 所有日志文件的总大小上限 -->
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 时间滚动输出 level为 ERROR 日志 -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 正在记录的日志文件的路径及文件名 -->
+        <file>${LOG_PATH}/log_error.log</file>
+        <!-- 日志文件输出格式 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>${LOG_CHARSET}</charset>
+        </encoder>
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 每天日志文件归档路径以及格式,可设置文件类型为gz,开启gzip文件压缩 -->
+            <fileNamePattern>${LOG_PATH}/archived/log-error-%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
+            <!-- 【根据服务器预留，可自行调整】 -->
+            <!-- 日志文件保留天数 -->
+            <maxHistory>30</maxHistory>
+            <!-- 每个日志文件的最大大小，超过时会切割并新建文件 -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- 所有日志文件的总大小上限 -->
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <!-- ERROR 级别及以上 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <!-- 异步输出 -->
+    <appender name="ASYNC_FILE_INFO" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 队列剩余容量小于discardingThreshold,则会丢弃TRACT、DEBUG、INFO级别的日志;默认值-1,为queueSize的20%;0不丢失日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>8192</queueSize>
+        <!-- neverBlock:true 会丢失日志,但业务性能不受影响 -->
+        <neverBlock>true</neverBlock>
+        <!--是否提取调用者数据-->
+        <includeCallerData>false</includeCallerData>
+        <appender-ref ref="INFO_FILE"/>
+    </appender>
+
+    <appender name="ASYNC_FILE_ERROR" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 队列剩余容量小于discardingThreshold,则会丢弃TRACT、DEBUG、INFO级别的日志;默认值-1,为queueSize的20%;0不丢失日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>1024</queueSize>
+        <!-- neverBlock:true 会丢失日志,但业务性能不受影响 -->
+        <neverBlock>true</neverBlock>
+        <!--是否提取调用者数据-->
+        <includeCallerData>false</includeCallerData>
+        <appender-ref ref="ERROR_FILE"/>
+    </appender>
+
+    <!-- 开发环境：控制台打印 -->
+    <springProfile name="dev">
+        <logger name="com.nmys.view" level="debug"/>
+    </springProfile>
+
+    <!-- 指定基础的日志输出级别 -->
+    <root level="info">
+        <!-- 控制台输出 -->
+        <appender-ref ref="CONSOLE"/>
+        <!-- 文件输出 -->
+        <!--<appender-ref ref="INFO_FILE"/>-->
+        <!--<appender-ref ref="ERROR_FILE"/>-->
+        <!-- 异步文件输出 -->
+        <!--<appender-ref ref="ASYNC_FILE_INFO"/>-->
+        <!--<appender-ref ref="ASYNC_FILE_ERROR"/>-->
+    </root>
+
+</configuration>
