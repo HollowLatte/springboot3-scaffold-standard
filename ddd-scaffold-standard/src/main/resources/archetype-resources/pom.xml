@@ -31,6 +31,8 @@
         <mybatis-plus.version>3.5.12</mybatis-plus.version>
         <!-- MySQL -->
         <mysql.version>8.3.0</mysql.version>
+        <!-- ShardingSphere -->
+        <shardingsphere.version>5.5.2</shardingsphere.version>
         <!-- Cache -->
         <redisson.version>3.24.2</redisson.version>
         <!-- JSON -->
@@ -128,6 +130,13 @@
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- ShardingSphere -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc</artifactId>
+                <version>${shardingsphere.version}</version>
             </dependency>
 
             <!-- Cache -->
