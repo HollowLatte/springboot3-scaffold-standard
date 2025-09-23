@@ -1,4 +1,4 @@
-package ${package}.config.mybatisplus;
+package ${package}.config.database.mybatisplus;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
