@@ -14,9 +14,9 @@ singleServerConfig:
   connectionMinimumIdleSize: 4
   connectionPoolSize: 4
   dnsMonitoringInterval: 5000
-lockWatchdogTimeout: 60000
-threads: 0
-nettyThreads: 0
+# lockWatchdogTimeout: 60000
+# threads: 0
+# nettyThreads: 0
 codec:
   class: "org.redisson.codec.JsonJacksonCodec"
 transportMode: "NIO"
