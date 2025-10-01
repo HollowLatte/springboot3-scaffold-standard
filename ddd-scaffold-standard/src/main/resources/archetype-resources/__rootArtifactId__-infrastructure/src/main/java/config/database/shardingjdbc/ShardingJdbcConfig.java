@@ -1,7 +1,6 @@
-package ${package}.config.database.mybatisplus;
+package com.hollowlatte.config.database.shardingjdbc;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
