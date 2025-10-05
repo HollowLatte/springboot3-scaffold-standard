@@ -38,24 +38,24 @@ public class MultiResponse<T> extends Response {
         return !isEmpty();
     }
 
-    public static MultiResponse buildSuccess() {
-        MultiResponse response = new MultiResponse();
+    public static <T> MultiResponse<T> success() {
+        MultiResponse<T> response = new MultiResponse<>();
         response.setSuccess(true);
         return response;
     }
 
-    public static MultiResponse buildFailure(String errCode, String errMessage) {
-        MultiResponse response = new MultiResponse();
-        response.setSuccess(false);
-        response.setErrCode(errCode);
-        response.setErrMessage(errMessage);
-        return response;
-    }
-
-    public static <T> MultiResponse<T> of(Collection<T> data) {
+    public static <T> MultiResponse<T> success(Collection<T> data) {
         MultiResponse<T> response = new MultiResponse<>();
         response.setSuccess(true);
         response.setData(data);
+        return response;
+    }
+
+    public static <T> MultiResponse<T> failure(String errCode, String errMessage) {
+        MultiResponse<T> response = new MultiResponse<>();
+        response.setSuccess(false);
+        response.setErrCode(errCode);
+        response.setErrMessage(errMessage);
         return response;
     }
 
