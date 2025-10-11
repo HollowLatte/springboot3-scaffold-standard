@@ -16,17 +16,17 @@ public class IndexController {
 
     @GetMapping("/get")
     public Response get() {
-        return SingleResponse.buildSuccess();
+        return SingleResponse.success();
     }
 
     @GetMapping("/list")
     public Response list() {
-        return MultiResponse.buildSuccess();
+        return MultiResponse.success();
     }
 
     @GetMapping("/page")
     public Response page() {
-        return PageResponse.buildSuccess();
+        return PageResponse.success();
     }
 
     @PostMapping("/create")
