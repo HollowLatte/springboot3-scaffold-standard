@@ -18,7 +18,7 @@ public class CustomerAddCmdExe {
         if (cmd.getCustomerDTO().getCompanyName().equals("ConflictCompanyName")) {
             throw new RuntimeException("公司名冲突");
         }
-        return Response.buildSuccess();
+        return null;
     }
 
 }

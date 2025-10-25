@@ -31,6 +31,6 @@ public class IndexController {
 
     @PostMapping("/create")
     public Response create(@RequestBody Object object) {
-        return SingleResponse.buildSuccess();
+        return SingleResponse.success();
     }
 }

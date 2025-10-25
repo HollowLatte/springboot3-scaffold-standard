@@ -16,13 +16,13 @@ public class Response extends DTO {
 
     private String errMessage;
 
-    public static Response buildSuccess() {
+    public static Response defaultFailure() {
         Response response = new Response();
         response.setSuccess(true);
         return response;
     }
 
-    public static Response buildFailure(String errCode, String errMessage) {
+    public static Response defaultFailure(String errCode, String errMessage) {
         Response response = new Response();
         response.setSuccess(false);
         response.setErrCode(errCode);
