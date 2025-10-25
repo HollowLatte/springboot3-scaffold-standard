@@ -13,8 +13,11 @@
 
     <fileSets>
         <fileSet>
-            <directory></directory>
+            <directory/>
             <includes>
+                <include>Dockerfile</include>
+                <include>build.sh</include>
+                <include>README.md</include>
                 <include>__gitignore__</include>
             </includes>
         </fileSet>

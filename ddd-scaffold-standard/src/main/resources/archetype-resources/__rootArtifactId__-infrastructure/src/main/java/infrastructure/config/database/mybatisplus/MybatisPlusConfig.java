@@ -8,7 +8,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@MapperScan(value = "com.hollowlatte.**.dao", lazyInitialization = "true")
+@MapperScan(value = "${package}.**.persistence.dao", lazyInitialization = "true")
 @Configuration
 public class MybatisPlusConfig {
 
