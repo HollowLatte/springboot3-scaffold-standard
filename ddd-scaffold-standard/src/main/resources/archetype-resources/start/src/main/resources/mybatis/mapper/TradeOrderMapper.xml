@@ -18,7 +18,7 @@
         UPDATE table SET a = ${symbol_pound}{a} WHERE b = ${symbol_pound}{b}
     </update>
 
-    <select id="queryEmployeeByEmployNumber" parameterType="java.lang.String" resultMap="CaseMap">
+    <select id="queryEmployeeByEmployNumber" parameterType="java.lang.String" resultMap="BaseResultMap">
         SELECT a, b, c
         FROM table
         WHERE a = ${symbol_pound}{a}
