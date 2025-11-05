@@ -64,3 +64,11 @@ logging:
   level:
     root: info
   config: classpath:logback-spring.xml
+
+# url: host:ip/swagger-ui/index.html
+springdoc:
+  swagger-ui:
+    enabled: true
+# url: host:ip/doc.html
+knife4j:
+  enable: true
