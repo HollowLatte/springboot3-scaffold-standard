@@ -22,9 +22,10 @@
             <artifactId>${rootArtifactId}-client</artifactId>
         </dependency>
 
+        <!-- Spring Framework -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -72,3 +72,16 @@ springdoc:
 # url: host:ip/doc.html
 knife4j:
   enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 暴露所有端点，包括自定义端点
+  endpoint:
+    health:
+      show-details: always # 显示详细的健康检查信息
+  prometheus:
+    metrics:
+      export:
+        enabled: true
