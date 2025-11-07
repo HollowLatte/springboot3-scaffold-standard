@@ -1,0 +1,23 @@
+name: prometheus-grafana
+services:
+  # 数据采集
+  prometheus:
+    image: bitnamilegacy/prometheus:3.5.0
+    container_name: prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  # 监控界面
+  grafana:
+    image: grafana/grafana:12.2
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    depends_on:
+      - prometheus
+    volumes:
+      - ./grafana:/etc/grafana
