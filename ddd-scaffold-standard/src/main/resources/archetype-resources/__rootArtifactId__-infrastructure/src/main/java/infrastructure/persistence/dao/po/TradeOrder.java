@@ -1,25 +1,21 @@
 package ${package}.infrastructure.persistence.dao.po;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import ${package}.infrastructure.common.po.BasePO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
 @Data
 @TableName("trade_order")
-public class TradeOrder {
-
-    @TableId
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class TradeOrder extends BasePO {
 
     private String orderId;
 
     private String buyerId;
 
-    private Date createTime;
-
     private String orderState;
 
-    private Boolean isDeleted;
 }
