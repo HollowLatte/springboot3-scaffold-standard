@@ -27,6 +27,8 @@
         <!-- Spring -->
         <spring-boot.version>3.4.5</spring-boot.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <!-- RPC -->
+        <dubbo.version>3.3.5</dubbo.version>
         <!-- MyBatis -->
         <mybatis-plus.version>3.5.12</mybatis-plus.version>
         <!-- Database -->
@@ -129,6 +131,25 @@
                 <scope>import</scope>
             </dependency>
             <!-- Import pom End -->
+
+            <!-- RPC -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-actuator</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-nacos-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
 
             <!-- MybatisPlus -->
             <dependency>
