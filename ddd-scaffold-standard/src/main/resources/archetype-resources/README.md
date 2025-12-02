@@ -18,7 +18,7 @@
 mvn clean package
 ```
 
-## 模块关系
+## DDD 模块关系
 
 * 所有模块可依赖 types 通用模块
 * domain 不可直接依赖 infrastructure；但 infrastructure 需依赖 domain

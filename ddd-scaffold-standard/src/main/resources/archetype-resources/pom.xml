@@ -64,6 +64,8 @@
         <!-- AI -->
         <spring-ai.version>1.0.3</spring-ai.version>
         <langchain4j.version>1.6.0</langchain4j.version>
+        <!-- TTL -->
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
     </properties>
 
     <dependencyManagement>
@@ -314,6 +316,13 @@
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
                 <version>${faker.version}</version>
+            </dependency>
+
+            <!-- TTL -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
