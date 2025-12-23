@@ -28,7 +28,7 @@
         <!-- https://spring.io/projects/spring-boot#learn -->
         <spring-boot.version>3.4.5</spring-boot.version>
         <!-- https://spring.io/projects/spring-cloud#learn -->
-        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud.version>2024.0.3</spring-cloud.version>
         <!-- https://spring.io/projects/spring-cloud-aws#learn -->
         <spring-cloud-aws.version>3.0.0</spring-cloud-aws.version>
         <!-- RPC -->
