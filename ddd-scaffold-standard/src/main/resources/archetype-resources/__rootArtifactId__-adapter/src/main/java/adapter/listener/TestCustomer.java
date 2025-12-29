@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestCustomer {
 
-    @RabbitListener(queuesToDeclare = {@Queue("test.queue")})
+    // @RabbitListener(queuesToDeclare = {@Queue("test.queue")})
     public void receive(String message) {
         log.info("Received message: {}", message);
     }
