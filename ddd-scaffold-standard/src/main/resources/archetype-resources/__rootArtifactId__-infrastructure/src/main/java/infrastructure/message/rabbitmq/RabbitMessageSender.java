@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class RabbitMessageSender {
 
-    @Lazy
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
