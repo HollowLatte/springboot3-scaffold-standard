@@ -45,7 +45,7 @@
         <!-- JSON -->
         <fastjson2.version>2.0.59</fastjson2.version>
         <!-- Tool -->
-        <hutool.version>5.8.22</hutool.version>
+        <hutool.version>5.8.42</hutool.version>
         <guava.version>32.1.2-jre</guava.version>
         <!-- Network -->
         <netty.version>4.1.90.Final</netty.version>
@@ -66,8 +66,8 @@
         <!-- Mock -->
         <datafaker.version>2.5.3</datafaker.version>
         <!-- AI -->
-        <spring-ai.version>1.0.3</spring-ai.version>
-        <langchain4j.version>1.6.0</langchain4j.version>
+        <spring-ai.version>1.1.0</spring-ai.version>
+        <langchain4j.version>1.10.0</langchain4j.version>
         <!-- TTL -->
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
     </properties>
