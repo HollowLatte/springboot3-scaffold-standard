@@ -3,20 +3,32 @@ singleServerConfig:
   password: hollowlatte
   clientName: hollowlatte
   database: 0
+
+  # --- 连接管理 ---
+  # 连接池不够会导致高并发下大量等待，建议至少 64
+  connectionPoolSize: 64
+  # 最小空闲连接，保持一定数量的活跃连接以应对突发流量
+  connectionMinimumIdleSize: 16
+
+  # --- 超时与重试 ---
+  # 闲置连接超时时间，如果经常发生连接重建，可适当调大
   idleConnectionTimeout: 10000
+  # 连接 Redis 的超时时间
   connectTimeout: 10000
-  timeout: 3000
+  # 命令执行等待时间。本地环境建议调小，快速发现问题
+  timeout: 1500
+  # 重试次数
   retryAttempts: 3
-  retryInterval: 1500
+  # 重试间隔
+  retryInterval: 500
+
+  # --- 发布/订阅 ---
   subscriptionsPerConnection: 5
   subscriptionConnectionMinimumIdleSize: 1
   subscriptionConnectionPoolSize: 20
-  connectionMinimumIdleSize: 4
-  connectionPoolSize: 4
-  dnsMonitoringInterval: 5000
-# lockWatchdogTimeout: 60000
-# threads: 0
-# nettyThreads: 0
+
+# --- 序列化 ---
 codec:
   class: "org.redisson.codec.JsonJacksonCodec"
+# --- 线程模型 ---
 transportMode: "NIO"

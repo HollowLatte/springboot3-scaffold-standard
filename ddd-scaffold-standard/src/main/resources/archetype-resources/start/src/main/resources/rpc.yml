@@ -1,0 +1,24 @@
+# Dubbo 配置
+dubbo:
+  enabled: false
+  scan:
+    base-packages: com.hollowlatte
+  application:
+    name: ${spring.application.name}
+    # 序列化检查状态。默认STRICT，不配置序列化允许名单则调用时无法正常返回值
+    serialize-check-status: WARN
+    # QoS 命令工具
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  protocol:
+    name: dubbo
+    port: -1
+  # Nacos 注册中心
+  registry:
+    address: nacos://127.0.0.1:8848
+    username: nacos
+    password: nacos
+    # parameters:
+      # Nacos namespace id，不是namespace名称
+      # namespace: 266ee38e-4977-4c00-b191-0ca3aa0f68dd
+      # group: dubbo

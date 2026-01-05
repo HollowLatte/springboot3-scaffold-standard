@@ -6,13 +6,19 @@ thread:
   pool:
     executor:
       config:
-        core-pool-size: 20
-        max-pool-size: 50
-        keep-alive-time: 5000
-        block-queue-size: 5000
+        core-pool-size: 8
+        max-pool-size: 16
+        keep-alive-time: 60
+        block-queue-size: 200
         reject-policy: abort
+        thread-name-prefix: "common-pool-%d"
 
 spring:
+  threads:
+    virtual:
+      enabled: true
+  config:
+    import: classpath:rpc.yml
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
@@ -47,30 +53,6 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 
-# Dubbo 配置
-dubbo:
-  enabled: false
-  scan:
-    base-packages: com.hollowlatte
-  application:
-    name: ${spring.application.name}
-    # 序列化检查状态。默认STRICT，不配置序列化允许名单则调用时无法正常返回值
-    serialize-check-status: WARN
-    # QoS 命令工具
-    qos-enable: true
-    qos-accept-foreign-ip: false
-  protocol:
-    name: dubbo
-    port: -1
-  # Nacos 注册中心
-  registry:
-    address: nacos://127.0.0.1:8848
-    username: nacos
-    password: nacos
-    # parameters:
-      # namespace id
-      # namespace: 266ee38e-4977-4c00-b191-0ca3aa0f68dd
-      # group: dubbo
 
 xxl:
   job:

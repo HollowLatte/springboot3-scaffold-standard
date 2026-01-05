@@ -7,8 +7,6 @@ import cn.hutool.core.thread.RejectPolicy;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.concurrent.RejectedExecutionHandler;
-
 @Data
 @ConfigurationProperties(prefix = "thread.pool.executor.config", ignoreInvalidFields = true)
 public class ThreadPoolConfigProperties {
@@ -16,26 +14,26 @@ public class ThreadPoolConfigProperties {
     /**
      * 核心线程数
      */
-    private Integer corePoolSize = 20;
+    private Integer corePoolSize;
     /**
      * 最大线程数
      */
-    private Integer maxPoolSize = 200;
+    private Integer maxPoolSize;
     /**
-     * 最大等待时间
+     * 最大等待时间，单位秒
      */
-    private Long keepAliveTime = 10L;
+    private Long keepAliveTime;
     /**
      * 最大队列数
      */
-    private Integer blockQueueSize = 5000;
+    private Integer blockQueueSize;
     /**
      * 拒接策略
      */
-    private RejectPolicy rejectPolicy = RejectPolicy.ABORT;
+    private RejectPolicy rejectPolicy;
     /**
      * 线程名称前缀
      */
-    private String threadNamePrefix = "common-pool";
+    private String threadNamePrefix;
 
 }
