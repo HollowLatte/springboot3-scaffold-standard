@@ -81,7 +81,7 @@
         <!-- 队列剩余容量小于discardingThreshold,则会丢弃TRACT、DEBUG、INFO级别的日志;默认值-1,为queueSize的20%;0不丢失日志 -->
         <discardingThreshold>0</discardingThreshold>
         <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
-        <queueSize>8192</queueSize>
+        <queueSize>1024</queueSize>
         <!-- neverBlock:true 会丢失日志,但业务性能不受影响 -->
         <neverBlock>true</neverBlock>
         <!--是否提取调用者数据-->

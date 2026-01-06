@@ -26,12 +26,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Spring -->
         <!-- https://spring.io/projects/spring-boot#learn -->
-        <spring-boot.version>3.4.5</spring-boot.version>
+        <spring-boot.version>3.5.9</spring-boot.version>
         <!-- https://spring.io/projects/spring-cloud#learn -->
-        <spring-cloud.version>2024.0.3</spring-cloud.version>
+        <spring-cloud.version>2025.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2025.0.0.0</spring-cloud-alibaba.version>
         <!-- https://spring.io/projects/spring-cloud-aws#learn -->
-        <spring-cloud-aws.version>3.0.0</spring-cloud-aws.version>
+        <spring-cloud-aws.version>3.4.2</spring-cloud-aws.version>
         <!-- RPC -->
         <dubbo.version>3.3.5</dubbo.version>
         <!-- MyBatis -->
