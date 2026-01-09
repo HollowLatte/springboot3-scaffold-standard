@@ -1,11 +1,9 @@
-package ${package}.infrastructure.persistence.dao.po;
+package ${package}.infrastructure.persistence.po;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import ${package}.infrastructure.common.po.BasePO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.util.Date;
 
 @Data
 @TableName("trade_order")
