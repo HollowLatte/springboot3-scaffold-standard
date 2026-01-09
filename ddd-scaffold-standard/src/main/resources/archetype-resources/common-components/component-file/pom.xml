@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.hollowlatte.component</groupId>
         <artifactId>common-components</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${version}</version>
     </parent>
 
     <artifactId>component-file</artifactId>

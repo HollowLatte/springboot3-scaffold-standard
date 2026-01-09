@@ -10,6 +10,7 @@
     <name>${artifactId}</name>
 
     <modules>
+        <module>common-components</module>
         <module>${rootArtifactId}-client</module>
         <module>${rootArtifactId}-adapter</module>
         <module>${rootArtifactId}-app</module>
@@ -43,6 +44,7 @@
         <shardingsphere.version>5.5.2</shardingsphere.version>
         <!-- Cache -->
         <redisson.version>3.24.2</redisson.version>
+        <jetcache.version>2.7.8</jetcache.version>
         <!-- JSON -->
         <fastjson2.version>2.0.59</fastjson2.version>
         <!-- Tool -->
@@ -76,6 +78,16 @@
     <dependencyManagement>
         <dependencies>
             <!--Project modules-->
+            <dependency>
+                <groupId>com.hollowlatte.component</groupId>
+                <artifactId>component-cache</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hollowlatte.component</groupId>
+                <artifactId>component-file</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>${groupId}</groupId>
                 <artifactId>${rootArtifactId}-types</artifactId>
