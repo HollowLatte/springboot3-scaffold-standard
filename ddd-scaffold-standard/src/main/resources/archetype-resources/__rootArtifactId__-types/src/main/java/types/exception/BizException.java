@@ -17,6 +17,11 @@ public class BizException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
+    public BizException(String message) {
+        super(message);
+        this.errorCode = DefaultErrorCode.HTTP_SERVER_ERROR;
+    }
+
     public BizException(String message, ErrorCode errorCode) {
         super(message);
         this.errorCode = errorCode;

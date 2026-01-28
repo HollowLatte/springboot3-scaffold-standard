@@ -280,7 +280,13 @@ public class GlobalExceptionHandler {
     public Response bizExceptionHandler(BizException ex) {
         log.error("[bizExceptionHandler]", ex);
         ErrorCode errorCode = ex.getErrorCode();
-        return Response.defaultFailure(errorCode.getCode(), errorCode.getMessage());
+        String errorMessage;
+        if (ex.getMessage() == null) {
+            errorMessage = errorCode.getMessage();
+        } else {
+            errorMessage = ex.getMessage();
+        }
+        return Response.defaultFailure(errorCode.getCode(), errorMessage);
     }
 
     // ===============================  默认异常处理 ===============================
