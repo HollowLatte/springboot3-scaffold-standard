@@ -10,4 +10,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /opt
 
-CMD ["/bin/sh","-c","chmod +x ./run.sh && sh ./run.sh"]
+COPY ./start/target/start.jar /opt/start.jar
+
+CMD ["java", "-jar", "start.jar"]
